@@ -1,10 +1,10 @@
 # Christy's Coding Quiz
 
-screenshot
-URL for remote repo
-URL for live webpage
+![screenshot](assets/images/screenshot-coding-quiz.png)
+URL for remote repo: https://github.com/ChristyGHanson/my-code-quiz
+URL for live webpage: https://christyghanson.github.io/my-code-quiz/
 
 ## Description
 
-[description of app goes here]
+App is still in development, but here is what I have so far.
 

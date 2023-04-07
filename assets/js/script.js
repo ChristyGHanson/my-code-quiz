@@ -1,11 +1,14 @@
 // create global variables
-var questionText = ;
-var choices = ;
-var answer = ;
+// var questionText = ;
+// var choices = ;
+// var answer = ;
 var timeLeft = 60;
-var initials = ;
-
-var choice1 = document.getElementById("choice1")
+// var initials = ;
+// Set questionCounter to 0 for now.
+var questionCounter = 0;
+var questionEl = document.getElementById("questions");
+// Manipulate HTML ID element iwth choice1.
+var choice1 = document.getElementById("choice1");
 
 // idea to have an array of questions 
 // each question would be an object
@@ -17,36 +20,45 @@ var choice1 = document.getElementById("choice1")
 // questionCounter = 0; 
 
 //object is made of key: value pairs
+// will be dynamically showing these to the users.
 const questions = [
+    // array of objects
     {
         questionText: 'This is the first question.',
+        // user can select from this array.
         choices: ['a', 'b', 'c', 'd'],
         answer: 'b'
     },
     {
         questionText: 'This is the first question.',
-        choices: ['a', 'b', 'c', 'd'],
+        // each value has its own index starting from 0
+        choices: ['1', '2', '3', '4'],
         answer: 'c'
     }
 ];
 
-questions[1].questionText
+// i want to get the value from questions. Get the question only.
+questions[1].questionText;
 
 // array of questions, display questions in HTML.
 // this will be triggered by a button.
 // start quiz button or choice button
 
-// Add event listeners to all the buttons. Doesn't matter where I put them. 
-// with event listener, I should not put a function parenthesis.
-// four event listeners for four buttons.
+// Four event listeners for each of the four buttons. 
 
-choice1.addEventListener('click', renderQuestion);
+// Add event listener to HTML element added in JS.
+// first parameter is click.
+choice1.addEventListener('click', renderQuestion); //increased question counter by 1. 
+choice2.addEventListener('click', renderQuestion);
+choice3.addEventListener('click', renderQuestion);
+choice4.addEventListener('click', renderQuestion);
 
+// invoking question.
 function renderQuestion(event) {
     console.log(event)
     console.log("moving on to the next question");
-
-    //compare user choice with answer
+    console.log(questions[1].questionText);
+    //compare user choice with answer.
     if (event.target.textContent == questions[questionCounter].answer) {
         // user selected correctly
     } else {
@@ -59,21 +71,23 @@ function renderQuestion(event) {
     //display next question
 
     questionEl.textContent = questions[questionCounter].questionText;
-    choice1.textContent = question[questionCounter].choices[0]
-    choice2.textContent = question[questionCounter].choices[1]
-    choice3.textContent = question[questionCounter].choices[2]
+    // button a, wants to update dynamically = questions (array)
+    // passing in questionCounter (init 0, ++)
+    choice1.textContent = questions[questionCounter].choices[0]
+    choice2.textContent = questions[questionCounter].choices[1]
+    choice3.textContent = questions[questionCounter].choices[2]
 }
 
-// make a timer using a JS method called setInterval
+// I need to make a timer using a JS method called setInterval
 // This behaves as a timer and behaves as a loop.
 
 
-// as i render questions, keep track of whether or not the user selected the correct answer.
+// As I render questions, I need to keep track of whether or not the user selected the correct answer.
 // I have to use booleans.
 
-// one of the last things is local storage
+// one of the last things is local storage.
 
-// setting up local storage with an object
+// I need to set up local storage with an object
 // score can be the time left. 
 // initials are user input for their own initials. 
 
@@ -88,3 +102,11 @@ function saveScore() {
     localStorage.setItem('highscores', JSON.stringify(data));
 
 }
+
+// review to past activity as a reference.
+// break it down piece by piece.
+// code quiz has a lot of lines of code.
+// see what requirements are
+// add HTML to display timer in browser. console log it.
+// Dynamically display it. --> see requirements for it.
+// Look into setting intervals as far as the timer goes. 
