@@ -3,12 +3,16 @@
 // var choices = ;
 // var answer = ;
 var timeLeft = 60;
+var score = 0; // Perfect score = 5
 // var initials = ;
 // Set questionCounter to 0 for now.
 var questionCounter = 0;
 var questionEl = document.getElementById("questions");
 // Manipulate HTML ID element iwth choice1.
 var choice1 = document.getElementById("choice1");
+var choice2 = document.getElementById("choice2");
+var choice3 = document.getElementById("choice3");
+var choice4 = document.getElementById("choice4");
 
 // idea to have an array of questions 
 // each question would be an object
@@ -30,11 +34,29 @@ const questions = [
         answer: 'b'
     },
     {
-        questionText: 'This is the first question.',
+        questionText: 'This is the second question.',
         // each value has its own index starting from 0
         choices: ['1', '2', '3', '4'],
         answer: 'c'
-    }
+    },
+    {
+        questionText: 'This is the third question.',
+        // each value has its own index starting from 0
+        choices: ['1', '2', '3', '4'],
+        answer: 'c'
+    },
+    {
+        questionText: 'This is the fourth question.',
+        // each value has its own index starting from 0
+        choices: ['1', '2', '3', '4'],
+        answer: 'c'
+    },
+    {
+        questionText: 'This is the fifth question.',
+        // each value has its own index starting from 0
+        choices: ['1', '2', '3', '4'],
+        answer: 'c'
+    },
 ];
 
 // i want to get the value from questions. Get the question only.
@@ -55,19 +77,22 @@ choice4.addEventListener('click', renderQuestion);
 
 // invoking question.
 function renderQuestion(event) {
-    console.log(event)
-    console.log("moving on to the next question");
-    console.log(questions[1].questionText);
+    // 
+    console.log('User Choice', event.target.textContent)
+    console.log('Current question', questions[questionCounter]);
     //compare user choice with answer.
     if (event.target.textContent == questions[questionCounter].answer) {
-        // user selected correctly
+        // user selected correctly, increase score by one point
+        score++;
+        console.log('User score has gone up', score)
     } else {
         //incorrect
-        //decrement time
-        timeLeft -= 5
+        //decrement time by 5.
+        timeLeft -= 5;
     }
 
     questionCounter++;
+    console.log("moving on to the next question");
     //display next question
 
     questionEl.textContent = questions[questionCounter].questionText;
@@ -76,6 +101,7 @@ function renderQuestion(event) {
     choice1.textContent = questions[questionCounter].choices[0]
     choice2.textContent = questions[questionCounter].choices[1]
     choice3.textContent = questions[questionCounter].choices[2]
+    choice4.textContent = questions[questionCounter].choices[3]
 }
 
 // I need to make a timer using a JS method called setInterval
