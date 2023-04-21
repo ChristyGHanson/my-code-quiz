@@ -8,11 +8,12 @@ var score = 0; // Perfect score = 5
 // Set questionCounter to 0 for now.
 var questionCounter = 0;
 var questionEl = document.getElementById("questions");
-// Manipulate HTML ID element iwth choice1.
+// Manipulate HTML ID element with choice1.
 var choice1 = document.getElementById("choice1");
 var choice2 = document.getElementById("choice2");
 var choice3 = document.getElementById("choice3");
 var choice4 = document.getElementById("choice4");
+
 
 // idea to have an array of questions 
 // each question would be an object
@@ -23,21 +24,21 @@ var choice4 = document.getElementById("choice4");
 // zero is for the first question
 // questionCounter = 0; 
 
-//object is made of key: value pairs
+//object is made of key value pairs
 // will be dynamically showing these to the users.
 const questions = [
     // array of objects
     {
-        questionText: 'This is the first question.',
+        questionText: 'What does CSS stand for?',
         // user can select from this array.
-        choices: ['a', 'b', 'c', 'd'],
-        answer: 'b'
+        choices: ['Cascading Style Sheets', 'Christys Shrimp Shack', 'Crabby-patty shrimp shack', 'Wrong Answer, Clearly'],
+        answer: 'Cascading Style Sheets'
     },
     {
-        questionText: 'This is the second question.',
+        questionText: 'What does HTML stand for?',
         // each value has its own index starting from 0
-        choices: ['1', '2', '3', '4'],
-        answer: 'c'
+        choices: ['Happy Time Media Lounge', 'Hyper Markdown Text Language', 'I dont know', 'Wrong Answer, Clearly'],
+        answer: 'Hyper Markdown Text Language'
     },
     {
         questionText: 'This is the third question.',
@@ -80,7 +81,8 @@ function renderQuestion(event) {
     // 
     console.log('User Choice', event.target.textContent)
     console.log('Current question', questions[questionCounter]);
-    //compare user choice with answer.
+    //compare user choice with answer.\
+    // determine what the next question is. 
     if (event.target.textContent == questions[questionCounter].answer) {
         // user selected correctly, increase score by one point
         score++;
@@ -89,6 +91,7 @@ function renderQuestion(event) {
         //incorrect
         //decrement time by 5.
         timeLeft -= 5;
+        console.log('Incorrect: Time remaining ', timeLeft)
     }
 
     questionCounter++;
@@ -98,10 +101,11 @@ function renderQuestion(event) {
     questionEl.textContent = questions[questionCounter].questionText;
     // button a, wants to update dynamically = questions (array)
     // passing in questionCounter (init 0, ++)
-    choice1.textContent = questions[questionCounter].choices[0]
-    choice2.textContent = questions[questionCounter].choices[1]
-    choice3.textContent = questions[questionCounter].choices[2]
-    choice4.textContent = questions[questionCounter].choices[3]
+    // textContent is a property.
+    choice1.textContent = questions[questionCounter].choices[0];
+    choice2.textContent = questions[questionCounter].choices[1];
+    choice3.textContent = questions[questionCounter].choices[2];
+    choice4.textContent = questions[questionCounter].choices[3];
 }
 
 // I need to make a timer using a JS method called setInterval
