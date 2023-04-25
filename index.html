@@ -5,32 +5,55 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/style/style.css">
+    <link rel="stylesheet" href="./assets/style/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <title>Christy's Coding Quiz</title>
 </head>
 
 <body>
-    <header>
-        <h1>Christy's Coding Quiz Challenge</h1>
-    </header>
+    <div class="content container is-fluid has-text-centered">
+        <div class="content notification is-primary">
+            <h1>
+                Christy's Coding Quiz
+            </h1>
+        </div>
+    </div>
+
     <!-- section of the app would go in its own div -->
     <!-- 3 divs, within each div, have a starting page -->
-    <header>
-        <h2>Introduction</h2>
-    </header>
+
     <main>
-        <h2 id="questions">What does CSS stand for?</h2>
+        <h2 id="questions">What does CSS stand for? Click an answer below.</h2>
+        <br>
         <button id="choice1">Cascading Style Sheets</button>
         <button id="choice2">Christys Shrimp Shack</button>
         <button id="choice3">Crabby-patty shrimp shack</button>
-        <button id="choice4">Wrong Answer, Clearly</button>
+        <button id="choice4">Wrong Answer, clearly.</button>
 
     </main>
-    <header>
-        <h2>High Score</h2>
+    <br>
+    <br>
+    <header class="content container is-fluid has-text-centered">
+        <h2>
+            Your Score</h2>
     </header>
-</body>
+    <br>
+    <p class="content container is-fluid has-text-centered">Your score populates here.</p>
+    <br>
+    <script>
+        console.log(localStorage);
+    </script>
+    <br>
 
+</body>
+<footer class="content footer">
+    <div class="content has-text-centered">
+        <p>
+            <strong>Coding quizzes are amazing!</strong> by <a href="https://github.com/ChristyGHanson">Christy
+                Hanson</a>.
+        </p>
+    </div>
+</footer>
 <script src=" ./assets/js/script.js"></script>
 
 </html>

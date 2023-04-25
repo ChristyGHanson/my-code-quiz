@@ -1,10 +1,7 @@
 // create global variables
-// var questionText = ;
-// var choices = ;
-// var answer = ;
+
 var timeLeft = 60;
 var score = 0; // Perfect score = 5
-// var initials = ;
 // Set questionCounter to 0 for now.
 var questionCounter = 0;
 var questionEl = document.getElementById("questions");
@@ -13,16 +10,6 @@ var choice1 = document.getElementById("choice1");
 var choice2 = document.getElementById("choice2");
 var choice3 = document.getElementById("choice3");
 var choice4 = document.getElementById("choice4");
-
-
-// idea to have an array of questions 
-// each question would be an object
-// an array of objects
-// each object is a question
-// keep track of which question i'm on so create a variable
-
-// zero is for the first question
-// questionCounter = 0; 
 
 //object is made of key value pairs
 // will be dynamically showing these to the users.
@@ -37,37 +24,31 @@ const questions = [
     {
         questionText: 'What does HTML stand for?',
         // each value has its own index starting from 0
-        choices: ['Happy Time Media Lounge', 'Hyper Markdown Text Language', 'I dont know', 'Wrong Answer, Clearly'],
-        answer: 'Hyper Markdown Text Language'
+        choices: ['Happy Time Media Lounge', 'Hypertext Markup Language', 'IDK!', 'Wrong Answer, Clearly'],
+        answer: 'Hypertext Markup Language'
     },
     {
-        questionText: 'This is the third question.',
+        questionText: 'What does the ++ operator mean in JavaScript?',
         // each value has its own index starting from 0
-        choices: ['1', '2', '3', '4'],
-        answer: 'c'
+        choices: ['Increment by 2', 'Increment by 10', 'Increment by 1', 'increment by 11'],
+        answer: 'Increment by 1'
     },
     {
-        questionText: 'This is the fourth question.',
+        questionText: 'What is a Boolean in computer science?',
         // each value has its own index starting from 0
-        choices: ['1', '2', '3', '4'],
-        answer: 'c'
+        choices: ['A science fiction species.', 'A planet in Star Wars.', 'Something having to do with math.', 'A binary variable, having two possible values called “true” and “false".'],
+        answer: 'A binary variable, having two possible values called “true” and “false.'
     },
     {
-        questionText: 'This is the fifth question.',
+        questionText: 'What is JavaScript used for?',
         // each value has its own index starting from 0
-        choices: ['1', '2', '3', '4'],
-        answer: 'c'
+        choices: ['Web development', 'Writing stories about coffee', 'Baristas need this for latte art.', 'Local dialect from the isle of Java.'],
+        answer: 'Web development'
     },
 ];
 
-// i want to get the value from questions. Get the question only.
+// Get the value from questions. Get the question only.
 questions[1].questionText;
-
-// array of questions, display questions in HTML.
-// this will be triggered by a button.
-// start quiz button or choice button
-
-// Four event listeners for each of the four buttons. 
 
 // Add event listener to HTML element added in JS.
 // first parameter is click.
@@ -76,13 +57,12 @@ choice2.addEventListener('click', renderQuestion);
 choice3.addEventListener('click', renderQuestion);
 choice4.addEventListener('click', renderQuestion);
 
-// invoking question.
+// Function that invokes the question.
 function renderQuestion(event) {
-    // 
     console.log('User Choice', event.target.textContent)
     console.log('Current question', questions[questionCounter]);
-    //compare user choice with answer.\
-    // determine what the next question is. 
+    // Compare user choice with answer.
+    // Determine what the next question is. 
     if (event.target.textContent == questions[questionCounter].answer) {
         // user selected correctly, increase score by one point
         score++;
@@ -108,22 +88,9 @@ function renderQuestion(event) {
     choice4.textContent = questions[questionCounter].choices[3];
 }
 
-// I need to make a timer using a JS method called setInterval
-// This behaves as a timer and behaves as a loop.
-
-
-// As I render questions, I need to keep track of whether or not the user selected the correct answer.
-// I have to use booleans.
-
-// one of the last things is local storage.
-
-// I need to set up local storage with an object
-// score can be the time left. 
-// initials are user input for their own initials. 
-
 // saving score logic to be inside another function
 function saveScore() {
-    var data = {
+    let data = {
         score: timeLeft,
         initials: initials //define intials 'inputEl.value'
     }
@@ -133,10 +100,8 @@ function saveScore() {
 
 }
 
-// review to past activity as a reference.
-// break it down piece by piece.
-// code quiz has a lot of lines of code.
-// see what requirements are
+
+// To do:
 // add HTML to display timer in browser. console log it.
 // Dynamically display it. --> see requirements for it.
 // Look into setting intervals as far as the timer goes. 
